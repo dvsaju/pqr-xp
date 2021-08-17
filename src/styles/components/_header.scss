@@ -1,0 +1,17 @@
+.pqr-header{
+    background-color: $background-color-dark;
+    height:5rem;
+    border-bottom:#d5d3df solid 1px;
+    box-shadow: rgba(0, 0, 0, 0.15) 0px 1.95px 2.6px;
+    &__container{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    &__logo{
+        img{
+            height:3rem;
+            width: auto;
+        }
+    }
+}

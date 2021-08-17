@@ -1,0 +1,20 @@
+.detalle-pqr__container{
+    padding-bottom: 1rem;
+    border-bottom: solid 1px #d0d0f6;
+    margin-bottom: 2rem;
+    &__descripcion{
+        font-weight: 700;
+        margin-bottom: 2rem;
+        font-size: 120%;
+        
+    }
+    
+    &__numero-radicado{
+        font-weight: 700;
+        margin-bottom:.5rem;
+    }
+    
+    &__fecha-radicado{
+        font-size: 85%;
+    }
+}

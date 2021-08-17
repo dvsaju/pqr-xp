@@ -1,0 +1,38 @@
+<h1 class="pqr-modal__titulo">Solicitar un nuevo pin</h1>
+<form *ngIf="!mensaje" name="recuperar-pin" [formGroup]="formRecuperacion" (submit)="recuperarPin($event)">
+    <fieldset>
+        <legend>¿Por qué medio desea recibir su nuevo pin?</legend>
+        <input (change)="changeMedio()" formControlName="medioRecuperacion" type="radio" id="pqr-recuperar-correo"
+            name="medioRecuperacion" value="0" />
+        <label class="pqr-radio-label" for="pqr-recuperar-correo">Correo electrónico</label>
+        <input (change)="changeMedio()" formControlName="medioRecuperacion" type="radio" id="pqr-recuperar-telefono"
+            name="medioRecuperacion" value="1" />
+        <label class="pqr-radio-label" for="pqr-recuperar-telefono">Teléfono celular</label>
+    </fieldset>
+    <div class="form-group">
+        <label for="pqr-detalle-medio">{{formRecuperacion.controls.medioRecuperacion.value ==
+            '0'? 'Correo electrónico':
+            'Teléfono celular'}} *</label>
+        <input [attr.placeholder]="inputPlaceholder()" formControlName="detalleMedio" id="pqr-detalle-medio"
+            [type]="inputType()" />
+        <div class="form-error"
+            *ngIf="formRecuperacion.controls.detalleMedio.errors && (formRecuperacion.controls.detalleMedio.touched || formRecuperacion.controls.detalleMedio.dirty)">
+            <span *ngIf="formRecuperacion.controls.detalleMedio.errors?.email">
+                Debe ingresar un email válido.
+            </span>
+            <span *ngIf="formRecuperacion.controls.detalleMedio.errors?.maxlength">
+                Debe ingresar número de máximo 10 caracteres.
+            </span>
+        </div>
+    </div>
+    <input type="submit" value="Solicitar PIN" [disabled]="formRecuperacion.invalid">
+</form>
+
+<div class="pqr-mensaje-modal" *ngIf="mensaje">
+    <div class="pqr-mensaje-modal__container">
+        <div class="pqr-mensaje-modal__icono-container"><span
+                class="material-icons pqr-mensaje-modal__icono-container__icono">{{mensaje.icono}}</span></div>
+        <div class="pqr-mensaje-modal__texto">{{mensaje.texto}}</div>
+    </div>
+    <button (click)="cerrarModal()">Continuar</button>
+</div>

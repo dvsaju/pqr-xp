@@ -1,0 +1,10 @@
+<app-card>
+    <div class="detalle-pqr__container">
+        <p class="detalle-pqr__container__descripcion">A continuación le mostramos el estado de sus procesos</p>
+        <p class="detalle-pqr__container__numero-radicado">Radicado número: {{pqr.numeroRadicado}}</p>
+        <p class="detalle-pqr__container__fecha-radicado">Radicado el día: {{pqr.fechaRadicado}}</p>
+    </div>
+    <ng-container *ngIf="pqr && pqr.mensajes">
+        <app-pqr-card *ngFor="let mensaje of pqr.mensajes" [mensaje]="mensaje"></app-pqr-card>
+    </ng-container>
+</app-card>

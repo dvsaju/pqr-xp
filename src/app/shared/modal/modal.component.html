@@ -1,0 +1,5 @@
+<div (click)="dismiss()"
+    [ngClass]="{'pqr-modal-overlay':true, 'pqr-modal--visible': showModal, 'pqr-modal--invisible': !showModal}"></div>
+<div [ngClass]="{'pqr-modal':true, 'pqr-modal--visible': showModal, 'pqr-modal--invisible': !showModal}">
+    <ng-content></ng-content>
+</div>

@@ -1,0 +1,14 @@
+.pqr_login{
+    &__logo{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding-bottom: 2rem;
+        border-bottom: 2px solid gainsboro;
+        margin-bottom: 3rem;
+        img{
+            width: 13rem;
+            height: auto;
+        }
+    }
+}

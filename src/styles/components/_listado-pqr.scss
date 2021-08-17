@@ -1,0 +1,40 @@
+.pqr-listado{
+    &__titulo{
+        font-weight: 700;
+    }
+    &__search{
+        width: 100%;
+        margin-bottom:2rem;
+    }
+    &__nav{
+        background-color: #fafafe;
+        border:solid 1px #d0d0f6;
+        border-radius: 5px;
+    }
+    &__lista{
+        list-style-type: none;
+    }
+    &__elemento-lista{
+        border-bottom: solid 1px #d0d0f6;
+    }
+    
+    &__radicado{
+        font-weight: 700;
+        margin-bottom: .3rem;
+    }
+    &__fecha{
+        opacity: .7;
+        font-size: 85%;
+        margin-bottom: .5rem;
+    }
+    &__boton{
+        background-color: transparent;
+        border-radius: 0;
+        color:$text-color;
+        border:none;
+        text-align: left;
+        &:hover{
+            background-color: lighten($primary-color, 20);
+        }
+    }
+}

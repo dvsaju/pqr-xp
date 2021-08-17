@@ -1,0 +1,18 @@
+<div [ngClass]="{'pqr-mensaje':true, 'pqr-mensaje--cliente':!mensaje.usuario.asesor}">
+    <div class="pqr-mensaje__avatar">
+        <img [attr.src]="mensaje.usuario.avatar" alt="">
+    </div>
+    <div class="pqr-mensaje__container">
+        <div class="pqr-mensaje__header">
+            <p class="pqr-mensaje__nombre">{{mensaje.usuario.nombre}}
+                <span class="pqr-mensaje__tag">{{mensaje.usuario.asesor ? 'Asesor' : 'Cliente'}}</span>
+            </p>
+            <p class="pqr-mensaje__fecha">{{mensaje.fecha}}</p>
+        </div>
+        <p class="pqr-mensaje__mensaje">{{mensaje.mensaje}}</p>
+        <a class="pqr-mensaje__descargar" *ngIf="mensaje.adjunto" [attr.href]="mensaje.adjunto" download>
+            <span class="material-icons pqr-mensaje__icono">file_present</span>
+            Descargar
+            archivo</a>
+    </div>
+</div>

@@ -1,0 +1,13 @@
+fieldset {
+    border:none;
+    margin-bottom: 2rem;
+    legend{
+        margin-bottom:1.5rem;
+        font-weight: 600;
+        font-size: 85%;
+    }
+    label{
+        margin-left: .5rem;
+        margin-right: 1rem;
+    }
+}

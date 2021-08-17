@@ -1,0 +1,68 @@
+<div class="row">
+    <div class="col-xs-12 col-md-6">
+        <app-card>
+            <div class="pqr-login">
+                <div class="pqr_login__logo">
+                    <img src="/assets/logo-white.png" alt="">
+                </div>
+                <div class="pqr-login__error" *ngIf="mostrarErrorLogin">
+                    El pin proporcionado es incorrecto o se encuentra vencido.
+                </div>
+                <p>Por favor ingrese la siguiente información:</p>
+
+                <form name="login-pqr" [formGroup]="loginForm" (submit)="iniciarSesion($event)">
+                    <div class="form-group">
+                        <label for="correo-login">Correo electrónico:</label>
+                        <input formControlName="correo" type="email" placeholder="ej: andres_giraldo@email.com"
+                            id="correo-login" name="correo" />
+                        <div class="form-error"
+                            *ngIf="loginForm.errors?.noMedium && (loginForm.touched || loginForm.dirty)">
+                            Debe ingresar el correo o teléfono celular con el que realizó la petición.
+                        </div>
+                        <div class="form-error"
+                            *ngIf="loginForm.controls.correo.errors && (loginForm.controls.correo.touched || loginForm.controls.correo.dirty)">
+                            <span *ngIf="loginForm.controls.correo.errors?.email">
+                                Debe ingresar un email válido.
+                            </span>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="celular-login">Teléfono celular:</label>
+                        <input formControlName="celular" type="tel" placeholder="ej: 317 5698521" id="celular-login"
+                            name="celular" />
+                        <div class="form-error"
+                            *ngIf="loginForm.errors?.noMedium && (loginForm.touched || loginForm.dirty)">
+                            Debe ingresar el correo o teléfono celular con el que realizó la petición.
+                        </div>
+                        <div class="form-error"
+                            *ngIf="loginForm.controls.celular.errors && (loginForm.controls.celular.touched || loginForm.controls.celular.dirty)">
+                            <span *ngIf="loginForm.controls.celular.errors?.maxlength">
+                                Debe ingresar número de máximo 10 caracteres.
+                            </span>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="pin-login">PIN:</label>
+                        <input (keydown)="onKeyDownPin($event)" formControlName="pin" type="number"
+                            placeholder="ej: 4427" step="1" name="pin" />
+                        <div class="form-error"
+                            *ngIf="loginForm.controls.pin.errors && (loginForm.controls.pin.touched || loginForm.controls.pin.dirty)">
+                            <span *ngIf="loginForm.controls.pin.errors?.required">
+                                Debe ingresar el pin.
+                            </span>
+                        </div>
+                        <button class="pqr-login__recovery" type="button" (click)="showPinRecoveryDialog()">Solicitar
+                            PIN *</button>
+                    </div>
+
+                    <input type="submit" title="Consultar pqrs" [disabled]="loginForm.invalid">
+                </form>
+
+            </div>
+        </app-card>
+    </div>
+</div>
+<app-modal [(showModal)]="showPinRecovery">
+    <app-recuperar-pin (pinSolicitado)="cerrarModal($event)" [correo]="loginForm.controls.correo.value">
+    </app-recuperar-pin>
+</app-modal>

@@ -1,0 +1,18 @@
+<app-card>
+    <div class="pqr-listado">
+        <p id="titulo-nav" class="pqr-listado__titulo">Listado de PQRs</p>
+        <input class="pqr-listado__search" type="text" placeholder="Buscar por nombre" (keyup)="filtrarPqr($event)"
+            [formControl]="filtroPqr" />
+        <nav aria-labelledby="titulo-nav" class="pqr-listado__nav">
+            <ul class="pqr-listado__lista">
+                <li *ngFor="let pqr of pqrsMostrados" class="pqr-listado__elemento-lista">
+                    <button (click)="cargarPqr(pqr.id)" class="pqr-listado__boton">
+                        <p class="pqr-listado__radicado">{{pqr.numeroRadicado}}</p>
+                        <p class="pqr-listado__fecha">{{pqr.fechaRadicado}}</p>
+                        <p class="pqr-listado__descripcion">{{pqr.descripcion}}</p>
+                    </button>
+                </li>
+            </ul>
+        </nav>
+    </div>
+</app-card>

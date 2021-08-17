@@ -1,0 +1,33 @@
+button, input[type=submit] {
+    background-color: $primary-color;
+    border:$primary-color 2px solid;
+    border-radius: 500px;
+    padding:.8rem 1.2rem;
+    color:white;
+    transition: all .2s;
+    cursor: pointer;
+    width:100%;
+    &:hover{
+        background-color: darken($primary-color, 20);
+    }
+    &[disabled]{
+        background-color: white;
+        opacity: .5;
+        color:black;
+        border-color: grey;
+        cursor:default;
+    }
+}
+.pqr-login__recovery{
+    margin-top:.5rem;
+    background-color: transparent;
+    color:$primary-color;
+    padding:0;
+    border:none;
+    color:$primary-color;
+    text-align: left;
+    &:hover{
+        background-color: transparent;
+        text-decoration: underline;
+    }
+}
